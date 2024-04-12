@@ -136,6 +136,7 @@
         width: calc(40%);
         height: calc(20%);
         padding: 20px;
+        margin:20px 0;
     }
 
     #toText {
@@ -144,7 +145,7 @@
 
     button {
         padding: 10px;
-        top: -90px;
+        /*top: -90px;*/
         position: relative;
     }
 
@@ -179,12 +180,18 @@
 <body>
     <!--<iframe id="mainMores" src="https://www.matools.com/morse?embed" width="100%" height="600px" style="border:0px;"></iframe>-->
     <div>
-        <textarea id="fromText" autofocus="autofocus" class="form-control" data-listener-added_a1713a4c="true"></textarea>
-        <button id='en' class="btn btn-primary" onclick="encode_morse_zh();" data-lang="tool_common_encode">编码</button>
-        <button id='de' class="btn btn-primary" onclick="decode_morse_zh();" data-lang="tool_common_decode">解码</button>
-        <button class="btn btn-success" onclick="copyStr($('#toText').val())" data-lang="tool_common_copy">复制</button>
-        <button id='cs' class="btn btn-default" onclick="clearText()" data-lang="tool_common_clear">清空</button>
-        <textarea id="toText" class="form-control" style="" readonly=""></textarea>
+        <div>
+            <textarea id="fromText" autofocus="autofocus" class="form-control" data-listener-added_a1713a4c="true"></textarea>
+        </div>
+        <div>
+            <button id='en' class="btn btn-primary" onclick="encode_morse_zh();" data-lang="tool_common_encode">编码</button>
+            <button id='de' class="btn btn-primary" onclick="decode_morse_zh();" data-lang="tool_common_decode">解码</button>
+            <button class="btn btn-success" onclick="copyStr($('#toText').val())" data-lang="tool_common_copy">复制</button>
+            <button id='cs' class="btn btn-default" onclick="clearText()" data-lang="tool_common_clear">清空</button>
+        </div>
+        <div>
+            <textarea id="toText" class="form-control" style="" readonly=""></textarea>
+        </div>
     </div>
 </body>
 
