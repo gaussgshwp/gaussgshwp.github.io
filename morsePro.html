@@ -126,82 +126,69 @@
         let res = str.replace(/.\//g, "/");
         return res;
     }
+
+    function cn(str) {
+        let res = str.replace(/\s*/g,"");
+        return res;
+    }
     </script>
     <style>
     body,
-    img {
+    img,
+    #btnset {
         text-align: center;
     }
 
-    #fromText,
-    #toText {
+    #fromText {
         width: calc(40%);
-        height: calc(20%);
-        padding: 20px;
+        height: 14em;
+        padding: 1em;
     }
 
     #toText {
         display: none!important;
     }
 
-    button {
-        padding: 10px;
-        top: 30px;
-        position: absolute!important;
-        /*position: relative;*/
-    }
-
-    div,
-    textarea {
-        margin: 0 auto;
-        /*text-align: center;*/
-    }
-
-    #de {
-        /*top: 90px;*/
-        /*left: ;*/
-        /*position: relative;*/
-        /*left:10px;*/
-        /*float: left;*/
-        top: 75px;
-        margin-left: -40px;
-    }
-
-    #en {
-        /*position: relative;*/
-        /*right: -109px;*/
-        /*top: -135px;*/
-        top: 25px;
-        margin-left: -40px;
-    }
-
-    #cs {
-        /*position: relative;*/
-        /*left: -109px;*/
-        /*top: -45px;*/
-        top: 125px;
-        margin-left: -40px;
-    }
-
-    #fromText {
-        /*margin-left: -109px;*/
-    }
-
     * {
         font-family: "YaHei Consolas Hybrid"!important;
+    }
+
+    button {
+        padding: .75em .75em;
+        margin: -.5em 0;
+        /*top: 30px;*/
+    }
+
+    #btnset {
+        height: 0px;
+        position: relative!important;
+        right: calc(20%);
+        /*top: calc(10%)!important;*/
+        margin-right: 3em;
+        top: 2em;
     }
     </style>
 </head>
 
 <body>
     <!--<iframe id="mainMores" src="https://www.matools.com/morse?embed" width="100%" height="600px" style="border:0px;"></iframe>-->
-    <div>
-        <button id='cs' class="btn btn-default" onclick="clearText()" data-lang="tool_common_clear">C</button>
-        <button id='en' class="btn btn-primary" onclick="encode_morse_zh();$('#fromText').val($('#toText').val());copyStr($('#fromText').val())" data-lang="tool_common_encode">E</button>
-        <button id='de' class="btn btn-primary" onclick="decode_morse_zh();$('#fromText').val($('#toText').val());copyStr($('#fromText').val())" data-lang="tool_common_decode">D</button>
-        <textarea id="fromText" autofocus="autofocus" class="form-control" data-listener-added_a1713a4c="true"></textarea>
-        <textarea id="toText" class="form-control" style="" readonly=""></textarea>
+    <div id="content">
+        <div id="btnset">
+            <button id='en' class="btn btn-primary" title="加密&自动复制" onclick="encode_morse_zh();$('#fromText').val($('#toText').val());copyStr($('#fromText').val())" data-lang="tool_common_encode">E</button>
+            </br>
+            </br>
+            <button id='de' class="btn btn-primary" title="解密&自动复制" onclick="decode_morse_zh();$('#fromText').val($('#toText').val());copyStr($('#fromText').val())" data-lang="tool_common_decode">D</button>
+            </br>
+            </br>
+            <button id='cs' class="btn btn-default" title="清空" textonclick="clearText()" data-lang="tool_common_clear">C</button>
+        </div>
+        <div id="txtset">
+            <textarea id="fromText" autofocus="autofocus" class="form-control" data-listener-added_a1713a4c="true"></textarea>
+            <textarea id="toText" class="form-control" style="" readonly=""></textarea>
+        </div>
     </div>
+    </br>
+    <div><a href='./morsePro.html' style='font-size:14px;'>新版</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='./morse.html' style='font-size:14px;'>旧版</a></div>
 </body>
 
 </html>
